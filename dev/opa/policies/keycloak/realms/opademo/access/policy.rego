@@ -8,6 +8,22 @@ import data.keycloak.utils.kc
 # Default allow rule: deny all
 default allow := false
 
+# Access Policy: downloads
+# Allow access to client-id:downloads resource if client is apart of job group
+allow if {
+	kc.isClient("downloads")
+	kc.isProtocol("openid-connect")
+	kc.isGrantType("client_credentials")
+	# kc.isGroupMember(input.resource.job)
+}
+
+# Access Policy: downloads
+# Allow access to client-id:downloads resource if client is apart of job group
+allow if {
+	kc.isClient("downloads")
+	kc.isGroupMember(input.resource.job)
+}
+
 # Access Policy: Account-Console
 # Allow access to client-id:account-console if realm-role:user
 allow if {
@@ -56,7 +72,7 @@ allow if {
 # Access Policy: "app7-password-grant"
 # Allow usage of password grant only for this client
 allow if {
-	kc.isClient("app7-password-grantXXX")
+	kc.isClient("app7-password-grant")
 	kc.isProtocol("openid-connect")
 	kc.isGrantType("password")
 }
