@@ -41,7 +41,7 @@ authenticationFlows:
         requirement: ALTERNATIVE
       - flowAlias: "Identity Forms"
         requirement: ALTERNATIVE
-        autheticatorFlow: true
+        authenticatorFlow: true
 
   - alias: "Identity Forms"
     description: "Sub-Flow to ask user for username an password"
