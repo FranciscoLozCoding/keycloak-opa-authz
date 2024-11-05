@@ -74,3 +74,9 @@ For the demo the `tester` user can be granted more access incrementally by uncom
 To apply the changed realm configuration to the running Keycloak instance, just execute the following command:
 
 `docker restart dev-keycloak-provisioning-1`.
+
+## Authz Opa integration
+
+The integration for authz doesn't work yet. 
+
+> TODO: try using js policy to integrate OPA with keycloak.
