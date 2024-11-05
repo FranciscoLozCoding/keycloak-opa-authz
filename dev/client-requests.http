@@ -1,4 +1,7 @@
-### Resource Owner Password Credentials Grant Flow with Confidential Client
+# Resource Owner Password Credentials Grant Flow with Confidential Client
+# used to authenticate a user (resource owner)
+# Suitable for cases where the user directly interacts with the client, such as a login form in an app or web service
+# (user -> downloads login form)
 POST http://localhost:8080/auth/realms/opademo/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -6,8 +9,20 @@ client_id=app7-password-grant&client_secret=secret&username=tester&password=test
 
 ###
 
-### Client Credentials Grant
+# Client Credentials Grant
+# used to authenticate the client itself rather than a specific user, server to server communication
+# (downloads app -> keycloak)
 POST http://localhost:8080/auth/realms/opademo/protocol/openid-connect/token
 Content-Type: application/x-www-form-urlencoded
 
 client_id=app8-client-credentials&client_secret=secret&grant_type=client_credentials
+
+###
+
+# test
+POST http://localhost:8080/auth/realms/opademo/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=downloads&client_secret=secret&grant_type=client_credentials
+
+###
